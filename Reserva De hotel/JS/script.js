@@ -1,15 +1,18 @@
-const CTA = document.querySelector(".cta a");
-const ALERT = document.querySelector("#booking-alert");
+const cta = document.querySelector(".cta a");
+const alertBox = document.querySelector("#booking-alert");
 
-CTA.classList.remove("hide");
-ALERT.classList.add("hide");
+cta.classList.remove("hide");
+alertBox.classList.add("hide");
 
 function reveal(e, current) {
     e.preventDefault();
-    current.innerHTML == "Reserve agora!" ? CTA.innerHTML = "Oooops!" : CTA.innerHTML = "Reserve Agora!";
-    ALERT.classList.toggle("hide");
+    current.textContent === "Reserve agora!" 
+        ? cta.textContent = "Oooops!" 
+        : cta.textContent = "Reserve Agora!";
+    alertBox.classList.toggle("hide");
 }
 
-CTA.addEventListener('click', function(e){ reveal(e, this) }, false);
-CTA.addEventListener('click', function(){ console.log("O botão foi clicado!") }, false);
-
+cta.addEventListener('click', function(e) {
+    reveal(e, this);
+    console.log("O botão foi clicado!");
+});
